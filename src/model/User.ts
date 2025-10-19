@@ -50,7 +50,7 @@ const UserSchema: Schema<User> = new Schema({
   },
   isVerified: { type: Boolean, required: true, default: false },
   isAcceptingMessages: { type: Boolean, required: true, default: true },
-  messages: [{ type: Schema.Types.ObjectId, ref: "Message" }],
+  messages: [MessageSchema],
 });
 
 export const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema);
